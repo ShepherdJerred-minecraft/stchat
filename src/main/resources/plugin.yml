@@ -1,0 +1,21 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: ${organization.name}
+website: ${organization.url}
+
+main: com.shepherdjerred.stchat.Main
+
+soft-depend: [stTitles, stTowns]
+
+commands:
+    stchat:
+        description: Admin commands for the stChat plugin
+        aliases: [stch]
+        permission: stChat.commands.admin
+        usage: /stchat
+    channel:
+        description: Player commands for the stChat plugin
+        aliases: [ch, chat]
+        permission: stChat.commands.channel
+        usage: /channel

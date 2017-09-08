@@ -1,0 +1,162 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.shepherdjerred</groupId>
+    <artifactId>stchat</artifactId>
+    <version>3.0.1-SNAPSHOT</version>
+    <name>stChat</name>
+    <url>https://github.com/ShepherdJerred/stChat</url>
+    <description>Cross-server chat channels</description>
+
+    <licenses>
+        <license>
+            <name>GPL-3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/ShepherdJerred/stchat/</url>
+        <connection>scm:git:git://github.com/shepherdjerred/stchat.git</connection>
+        <developerConnection>scm:git:git@github.com:shepherdjerred/stchat.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>thestorm-releases</id>
+            <name>Releases</name>
+            <url>http://ts-mc.net:8085/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>thestorm-snapshots</id>
+            <name>Snapshots</name>
+            <url>http://ts-mc.net:8085/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <email>shepherdjerred@gmail.com</email>
+            <name>Jerred Shepherd</name>
+            <url>https://github.com/shepherdjerred</url>
+            <id>shepherdjerred</id>
+        </developer>
+    </developers>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.spigotmc:spigot-api</exclude>
+                                    <exclude>org.bukkit:craftbukkit</exclude>
+                                    <exclude>org.jetbrains:annotations</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+
+        <repository>
+            <id>shepherdjerred</id>
+            <url>http://52.37.107.212:8081/nexus/content/repositories/releases</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.shepherdjerred</groupId>
+            <artifactId>sttitles</artifactId>
+            <version>3.3.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shepherdjerred</groupId>
+            <artifactId>sttowns</artifactId>
+            <version>2.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>${spgiot.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>${spgiot.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>2.4.5</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>15.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spgiot.api.version>1.10.2-R0.1-SNAPSHOT</spgiot.api.version>
+    </properties>
+</project>

@@ -1,0 +1,12 @@
+prefix: '&8[&3stChat&8]: &7'
+generic:
+  noPerms: '&cYou don''t have permission to do that!'
+  noConsole: '&cYou must be a player to do that!'
+  noArgs:
+    correct: '&cNo arguments given! Valid arguments are: %args%'
+  invalidArg:
+    correct: '&c%arg% is not a valid argument! Valid arguments are: %args%'
+commands:
+  admin:
+    reload:
+      success: '&aConfiguration reloaded'

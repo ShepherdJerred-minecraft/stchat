@@ -1,0 +1,19 @@
+mysql:
+    hostname: localhost
+    port: 3306
+    database: stchat
+    username: root
+    password: password
+    prefix: stchat_
+    pool:
+        connectionTimeout: 30000
+        idleTimeout: 300000
+        minIdleConnections: 9
+        maxConnections: 9
+
+stTowns:
+    enabled: false
+
+redis: false
+
+debug: false
